@@ -1,0 +1,1929 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Índice de Bienestar Personal · Ecosistema Holístico</title>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       DESIGN SYSTEM — Ecosistema de Medicina Holística v1.1
+       IBP v5 — Profundidad conceptual (Opción B)
+    ============================================================ */
+    :root {
+      --verde-bosque:    #2D5016;
+      --verde-claro:     #3d6b20;
+      --ocre-tierra:     #C67F3E;
+      --ocre-suave:      #e8a76a;
+      --azul-medicina:   #3B5A7D;
+      --morado-ritual:   #6B4E71;
+      --amarillo-semilla:#E8B62E;
+      --beige-papel:     #F5F1E8;
+      --beige-claro:     #FAF7F2;
+      --beige-oscuro:    #EDE8DC;
+      --negro-carbon:    #2B2B2B;
+      --gris-medio:      #6B6B6B;
+      --gris-suave:      #A0A0A0;
+      --rojo-bajo:       #8b2020;
+
+      --font-display: 'Crimson Pro', Georgia, serif;
+      --font-body:    'Lora', Georgia, serif;
+      --font-mono:    'IBM Plex Mono', 'Courier New', monospace;
+
+      --sp-xs: 0.5rem;
+      --sp-sm: 1rem;
+      --sp-md: 1.5rem;
+      --sp-lg: 2rem;
+      --sp-xl: 3rem;
+
+      --shadow-sm: 0 2px 8px rgba(43,43,43,0.06);
+      --shadow-md: 0 6px 24px rgba(43,43,43,0.09);
+      --shadow-lg: 0 16px 48px rgba(43,43,43,0.14);
+
+      --radius-sm:   8px;
+      --radius-md:   14px;
+      --radius-lg:   20px;
+      --radius-full: 999px;
+
+      --border-line:   rgba(43,43,43,0.12);
+      --border-accent: rgba(45,80,22,0.2);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--negro-carbon);
+      background: var(--beige-papel);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse at 20% 0%, rgba(45,80,22,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 100%, rgba(59,90,125,0.05) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ============================================================
+       PANTALLA DE ENTRADA
+    ============================================================ */
+    #screen-intro {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: var(--beige-papel);
+      overflow-y: auto;
+    }
+
+    #screen-intro::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse at 15% 10%, rgba(45,80,22,0.08) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 90%, rgba(59,90,125,0.07) 0%, transparent 55%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .intro-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: var(--sp-xl) var(--sp-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-xl);
+    }
+
+    /* ---- Cabecera ---- */
+    .intro-header { text-align: center; }
+
+    .intro-breadcrumb {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gris-medio);
+      margin-bottom: var(--sp-sm);
+    }
+    .intro-breadcrumb span { color: var(--verde-bosque); }
+
+    .intro-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ocre-tierra);
+      margin-bottom: var(--sp-xs);
+    }
+
+    .intro-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 700;
+      color: var(--verde-bosque);
+      line-height: 1.06;
+      margin-bottom: var(--sp-md);
+    }
+
+    .intro-lead {
+      font-size: 1.08rem;
+      color: var(--gris-medio);
+      line-height: 1.8;
+      max-width: 640px;
+      margin: 0 auto var(--sp-md);
+    }
+
+    /* Pillars filosófico — frase debajo del lead */
+    .intro-filosophy {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--verde-bosque);
+      background: rgba(45,80,22,0.06);
+      border-left: 3px solid var(--verde-bosque);
+      padding: 0.6rem 1.2rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    /* Separador ornamental */
+    .ornament {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-sm);
+      font-size: 1.1rem;
+    }
+    .ornament::before, .ornament::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(45,80,22,0.22), transparent);
+    }
+
+    /* ---- Caja IBP ---- */
+    .intro-ibp-box {
+      background: white;
+      border: 1px solid var(--border-line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: var(--sp-lg);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--sp-lg);
+      align-items: center;
+    }
+
+    .ibp-score-demo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--sp-sm);
+    }
+
+    .ibp-circle {
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, rgba(45,80,22,0.12), rgba(45,80,22,0.04));
+      border: 2px solid rgba(45,80,22,0.25);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700; color: var(--verde-bosque);
+      box-shadow: var(--shadow-sm);
+    }
+    .ibp-circle .ibp-num { font-size: 2rem; line-height: 1; }
+    .ibp-circle .ibp-den { font-family: var(--font-mono); font-size: 0.7rem; color: var(--gris-medio); }
+
+    .ibp-ranges { display: flex; flex-direction: column; gap: 4px; }
+    .ibp-range-item {
+      font-family: var(--font-mono); font-size: 0.68rem;
+      padding: 3px 9px; border-radius: var(--radius-full); text-align: center;
+    }
+
+    .ibp-box-text h2 {
+      font-family: var(--font-display); font-size: 1.5rem;
+      font-weight: 700; color: var(--verde-bosque); margin-bottom: var(--sp-xs);
+    }
+    .ibp-box-text p {
+      font-size: 0.95rem; color: var(--gris-medio);
+      line-height: 1.7; margin-bottom: var(--sp-sm);
+    }
+    .ibp-box-text p:last-child { margin-bottom: 0; }
+
+    /* ============================================================
+       TARJETAS DE PILARES + MODAL POPUP
+    ============================================================ */
+    .pillars-section-header { text-align: center; }
+
+    .pillars-section-title {
+      font-family: var(--font-display);
+      font-size: 1.9rem; font-weight: 700;
+      color: var(--verde-bosque); margin-bottom: var(--sp-xs);
+    }
+
+    .pillars-section-sub {
+      font-size: 0.93rem; color: var(--gris-medio);
+      font-style: italic; margin-bottom: var(--sp-xs);
+    }
+
+    .click-hint {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-mono); font-size: 0.7rem;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--ocre-tierra);
+      background: rgba(198,127,62,0.08);
+      border: 1px solid rgba(198,127,62,0.2);
+      padding: 5px 14px; border-radius: var(--radius-full);
+      margin-top: var(--sp-xs);
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: var(--sp-sm);
+    }
+
+    /* Tarjeta de pilar (frente único) */
+    .pillar-card {
+      background: white;
+      border: 1px solid var(--border-line);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      padding: var(--sp-md);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pillar-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(45,80,22,0.03), transparent);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-accent);
+    }
+
+    .pillar-card:hover::after { opacity: 1; }
+
+    .pcard-top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: var(--sp-sm);
+    }
+
+    .pcard-icon { font-size: 1.8rem; line-height: 1; }
+
+    .pcard-num {
+      font-family: var(--font-mono); font-size: 0.68rem;
+      color: var(--gris-suave); letter-spacing: 0.08em;
+      padding: 3px 8px; background: var(--beige-claro);
+      border-radius: var(--radius-full); white-space: nowrap;
+    }
+
+    .pcard-name {
+      font-family: var(--font-display);
+      font-size: 1.12rem; font-weight: 700;
+      color: var(--negro-carbon);
+    }
+
+    .pcard-desc {
+      font-size: 0.84rem; color: var(--gris-medio);
+      line-height: 1.5; flex: 1;
+    }
+
+    .pcard-cue {
+      display: flex; align-items: center; gap: 5px;
+      font-family: var(--font-mono); font-size: 0.68rem;
+      color: var(--ocre-tierra); letter-spacing: 0.05em;
+      margin-top: var(--sp-xs);
+    }
+
+    .pcard-cue-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--ocre-tierra); flex-shrink: 0;
+    }
+
+    /* ---- MODAL OVERLAY ---- */
+    #pillar-modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      background: rgba(43,43,43,0.55);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--sp-md);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    #pillar-modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* ---- MODAL PANEL ---- */
+    #pillar-modal {
+      background: white;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      width: 100%;
+      max-width: 560px;
+      max-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transform: translateY(24px) scale(0.97);
+      transition: transform 0.28s cubic-bezier(0.34, 1.3, 0.64, 1);
+    }
+
+    #pillar-modal-overlay.open #pillar-modal {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-header {
+      padding: var(--sp-lg);
+      background: linear-gradient(135deg, rgba(45,80,22,0.06) 0%, var(--beige-claro) 100%);
+      border-bottom: 1px solid var(--border-line);
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: var(--sp-md);
+      align-items: flex-start;
+    }
+
+    .modal-icon { font-size: 2.4rem; line-height: 1; }
+
+    .modal-header-text {}
+
+    .modal-num {
+      font-family: var(--font-mono); font-size: 0.7rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--ocre-tierra); margin-bottom: 4px;
+    }
+
+    .modal-name {
+      font-family: var(--font-display); font-size: 1.55rem;
+      font-weight: 700; color: var(--verde-bosque);
+      line-height: 1.1; margin-bottom: 6px;
+    }
+
+    .modal-intro {
+      font-size: 0.9rem; color: var(--gris-medio); line-height: 1.6;
+    }
+
+    .modal-close {
+      width: 36px; height: 36px; min-width: 36px;
+      border-radius: 50%;
+      background: var(--beige-oscuro);
+      border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; color: var(--gris-medio);
+      transition: background 0.15s ease, color 0.15s ease;
+      padding: 0;
+    }
+    .modal-close:hover { background: var(--beige-papel); color: var(--negro-carbon); }
+
+    .modal-body {
+      padding: var(--sp-lg);
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .modal-habits-title {
+      font-family: var(--font-display); font-size: 1rem;
+      font-weight: 700; color: var(--verde-bosque);
+      margin-bottom: var(--sp-md);
+      display: flex; align-items: center; gap: var(--sp-sm);
+    }
+
+    .modal-habits-title::after {
+      content: '';
+      flex: 1; height: 1px;
+      background: var(--border-accent);
+    }
+
+    .modal-habits-list { list-style: none; display: flex; flex-direction: column; gap: var(--sp-sm); }
+
+    .modal-habit-item {
+      display: flex; gap: var(--sp-sm); align-items: flex-start;
+      padding: var(--sp-sm);
+      background: var(--beige-claro);
+      border: 1px solid var(--border-line);
+      border-radius: var(--radius-sm);
+      transition: border-color 0.15s ease;
+    }
+
+    .modal-habit-item:hover { border-color: var(--border-accent); }
+
+    .modal-habit-num {
+      font-family: var(--font-mono); font-size: 0.72rem;
+      color: white; background: var(--verde-bosque);
+      width: 22px; height: 22px; min-width: 22px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+    }
+
+    .modal-habit-text {
+      font-size: 0.88rem; color: var(--negro-carbon); line-height: 1.55;
+    }
+
+    .modal-footer {
+      padding: var(--sp-md) var(--sp-lg);
+      border-top: 1px solid var(--border-line);
+      display: flex; align-items: center; justify-content: space-between;
+      gap: var(--sp-sm);
+      background: var(--beige-claro);
+    }
+
+    .modal-nav-btn {
+      font-family: var(--font-mono); font-size: 0.72rem;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 7px 16px; border-radius: var(--radius-full);
+      border: 1px solid var(--border-line);
+      background: white; color: var(--gris-medio); cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .modal-nav-btn:hover { background: var(--beige-papel); color: var(--negro-carbon); border-color: var(--border-accent); }
+    .modal-nav-btn:disabled { opacity: 0.35; cursor: default; }
+
+    .modal-counter {
+      font-family: var(--font-mono); font-size: 0.72rem;
+      color: var(--gris-suave); letter-spacing: 0.06em;
+    }
+
+    /* ============================================================
+       EFECTO ORQUESTA
+    ============================================================ */
+    .orquesta-section {
+      background: white;
+      border: 1px solid var(--border-line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+
+    .orquesta-header {
+      background: linear-gradient(135deg, var(--verde-bosque) 0%, #1e3a0d 100%);
+      padding: var(--sp-lg);
+      color: white;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--sp-md);
+      align-items: center;
+    }
+
+    .orquesta-eyebrow {
+      font-family: var(--font-mono); font-size: 0.7rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.6); margin-bottom: 6px;
+    }
+
+    .orquesta-title {
+      font-family: var(--font-display); font-size: 1.8rem;
+      font-weight: 700; line-height: 1.1; margin-bottom: var(--sp-xs);
+    }
+
+    .orquesta-subtitle {
+      font-size: 0.92rem; color: rgba(255,255,255,0.75); line-height: 1.6;
+    }
+
+    .orquesta-emoji {
+      font-size: 4rem; opacity: 0.5; user-select: none;
+    }
+
+    .orquesta-body {
+      padding: var(--sp-lg);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-lg);
+    }
+
+    .orquesta-text p {
+      font-size: 0.95rem; color: var(--gris-medio);
+      line-height: 1.8; margin-bottom: var(--sp-sm);
+    }
+    .orquesta-text p:last-child { margin-bottom: 0; }
+
+    .orquesta-text strong { color: var(--negro-carbon); }
+
+    /* Diagrama de sinergias */
+    .sinergy-diagram {
+      display: flex; flex-direction: column; gap: var(--sp-sm);
+    }
+
+    .sinergy-title {
+      font-family: var(--font-display); font-size: 1rem;
+      font-weight: 700; color: var(--verde-bosque);
+      margin-bottom: var(--sp-xs);
+    }
+
+    .sinergy-item {
+      background: var(--beige-claro);
+      border: 1px solid var(--border-line);
+      border-radius: var(--radius-md); padding: var(--sp-sm);
+    }
+
+    .sinergy-row {
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 4px; flex-wrap: wrap;
+    }
+
+    .sinergy-pill {
+      font-family: var(--font-mono); font-size: 0.68rem;
+      padding: 3px 9px; border-radius: var(--radius-full);
+      background: rgba(45,80,22,0.1); color: var(--verde-bosque);
+      white-space: nowrap;
+    }
+
+    .sinergy-arrow { color: var(--ocre-tierra); font-size: 0.9rem; }
+
+    .sinergy-desc { font-size: 0.82rem; color: var(--gris-medio); line-height: 1.4; }
+
+    .orquesta-meta {
+      padding: var(--sp-md) var(--sp-lg);
+      background: var(--beige-claro);
+      border-top: 1px solid var(--border-line);
+      font-family: var(--font-display); font-size: 1rem;
+      font-style: italic; color: var(--azul-medicina);
+      text-align: center;
+    }
+
+    /* ============================================================
+       RUTA SEMANAL (antes del CTA)
+    ============================================================ */
+    .ruta-section {
+      background: white;
+      border: 1px solid var(--border-line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+
+    .ruta-header {
+      padding: var(--sp-lg);
+      border-bottom: 1px solid var(--border-line);
+      display: grid; grid-template-columns: 1fr auto;
+      gap: var(--sp-md); align-items: start;
+    }
+
+    .ruta-eyebrow {
+      font-family: var(--font-mono); font-size: 0.7rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--ocre-tierra); margin-bottom: 6px;
+    }
+
+    .ruta-title {
+      font-family: var(--font-display); font-size: 1.6rem;
+      font-weight: 700; color: var(--verde-bosque);
+      margin-bottom: var(--sp-xs);
+    }
+
+    .ruta-desc {
+      font-size: 0.92rem; color: var(--gris-medio); line-height: 1.7;
+    }
+
+    .ruta-tiempo {
+      font-family: var(--font-mono); font-size: 0.75rem;
+      padding: 6px 14px; border-radius: var(--radius-full);
+      background: rgba(198,127,62,0.1); color: #8c5820;
+      border: 1px solid rgba(198,127,62,0.25); white-space: nowrap;
+    }
+
+    .ruta-steps {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 0; border-bottom: 1px solid var(--border-line);
+    }
+
+    .ruta-step {
+      padding: var(--sp-md);
+      border-right: 1px solid var(--border-line);
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .ruta-step:last-child { border-right: none; }
+
+    .ruta-step-num {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--verde-bosque); color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono); font-size: 0.78rem; font-weight: 500;
+    }
+
+    .ruta-step-verb {
+      font-family: var(--font-display); font-size: 1.05rem;
+      font-weight: 700; color: var(--verde-bosque);
+    }
+
+    .ruta-step-desc {
+      font-size: 0.82rem; color: var(--gris-medio); line-height: 1.5;
+    }
+
+    .ruta-step-ex {
+      font-size: 0.78rem; font-style: italic;
+      color: var(--ocre-tierra); margin-top: auto;
+      padding-top: 6px; border-top: 1px dashed rgba(198,127,62,0.3);
+    }
+
+    .ruta-eticas {
+      padding: var(--sp-md) var(--sp-lg);
+      display: flex; gap: var(--sp-md); flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .ruta-eticas-label {
+      font-family: var(--font-mono); font-size: 0.7rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gris-suave); white-space: nowrap;
+    }
+
+    .etica-pill {
+      font-family: var(--font-display); font-size: 0.88rem;
+      font-style: italic; color: var(--azul-medicina);
+      background: rgba(59,90,125,0.07);
+      border: 1px solid rgba(59,90,125,0.18);
+      padding: 5px 14px; border-radius: var(--radius-full);
+    }
+
+    /* ============================================================
+       CTA FINAL
+    ============================================================ */
+    .intro-cta {
+      display: flex; flex-direction: column;
+      align-items: center; gap: var(--sp-sm);
+      padding: var(--sp-sm) 0 var(--sp-lg);
+    }
+
+    .intro-cta-note {
+      font-size: 0.82rem; color: var(--gris-suave); font-style: italic;
+    }
+
+    .btn-cta {
+      font-family: var(--font-body); font-size: 1.08rem; font-weight: 600;
+      padding: 0.9rem 2.6rem; border-radius: var(--radius-full);
+      border: none; cursor: pointer;
+      background: var(--verde-bosque); color: white;
+      box-shadow: 0 6px 24px rgba(45,80,22,0.32);
+      transition: all 0.2s ease; letter-spacing: 0.02em;
+    }
+    .btn-cta:hover {
+      background: var(--verde-claro);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 32px rgba(45,80,22,0.38);
+    }
+
+    /* ============================================================
+       NAVEGACIÓN STICKY
+    ============================================================ */
+    #app-nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(245,241,232,0.94);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-line);
+      display: none;
+    }
+
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 var(--sp-md);
+      display: flex; align-items: center;
+      gap: var(--sp-md); height: 52px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display); font-size: 1rem;
+      font-weight: 700; color: var(--verde-bosque);
+      white-space: nowrap; margin-right: auto;
+    }
+
+    .nav-links { display: flex; gap: 4px; }
+
+    .nav-link {
+      font-family: var(--font-mono); font-size: 0.72rem;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 6px 14px; border-radius: var(--radius-full);
+      border: none; background: transparent;
+      color: var(--gris-medio); cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .nav-link:hover { background: var(--beige-oscuro); color: var(--negro-carbon); }
+    .nav-link.active { background: var(--verde-bosque); color: white; }
+
+    /* ============================================================
+       APP PRINCIPAL
+    ============================================================ */
+    #screen-app { position: relative; z-index: 1; display: none; }
+
+    .wrap { max-width: 1200px; margin: 0 auto; padding: var(--sp-lg) var(--sp-md); }
+
+    .app-section { scroll-margin-top: 64px; }
+
+    .panel {
+      background: white; border: 1px solid var(--border-line);
+      border-radius: var(--radius-lg); box-shadow: var(--shadow-md);
+    }
+
+    /* Hero */
+    .hero {
+      display: grid; grid-template-columns: 1.3fr 0.7fr;
+      gap: var(--sp-md); align-items: stretch; margin-bottom: var(--sp-md);
+    }
+
+    .hero-main {
+      padding: var(--sp-lg); position: relative; overflow: hidden;
+    }
+    .hero-main::before {
+      content: '🌿'; position: absolute;
+      right: var(--sp-lg); top: var(--sp-lg);
+      font-size: 4.5rem; opacity: 0.07; pointer-events: none;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-mono); font-size: 0.75rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--ocre-tierra); margin-bottom: var(--sp-xs);
+    }
+
+    .hero-title {
+      font-family: var(--font-display); font-size: 2.2rem;
+      font-weight: 700; color: var(--verde-bosque);
+      line-height: 1.1; margin-bottom: var(--sp-xs);
+    }
+
+    .hero-desc { font-size: 0.95rem; color: var(--gris-medio); line-height: 1.7; margin-bottom: var(--sp-xs); }
+    .hero-disclaimer { font-size: 0.83rem; color: var(--gris-suave); font-style: italic; }
+
+    .hero-side {
+      padding: var(--sp-md);
+      background: linear-gradient(160deg, rgba(45,80,22,0.04) 0%, rgba(59,90,125,0.04) 100%);
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    }
+    .hero-side h2 {
+      font-family: var(--font-display); font-size: 1.15rem;
+      font-weight: 600; color: var(--azul-medicina); margin-bottom: var(--sp-sm);
+    }
+
+    .step-list { list-style: none; }
+    .step-list li {
+      display: flex; gap: var(--sp-sm); align-items: flex-start;
+      margin-bottom: var(--sp-sm); font-size: 0.88rem; color: var(--gris-medio);
+    }
+    .step-num {
+      display: flex; align-items: center; justify-content: center;
+      width: 24px; height: 24px; min-width: 24px;
+      border-radius: 50%; background: var(--verde-bosque); color: white;
+      font-family: var(--font-mono); font-size: 0.68rem;
+    }
+
+    /* Botones */
+    button, .file-label {
+      border: none; padding: 0.6rem 1.15rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body); font-size: 0.88rem; font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+    button:active, .file-label:active { transform: translateY(1px); }
+
+    .primary { background: var(--verde-bosque); color: white; box-shadow: 0 4px 14px rgba(45,80,22,0.28); }
+    .primary:hover { background: var(--verde-claro); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(45,80,22,0.34); }
+
+    .secondary { background: rgba(59,90,125,0.1); color: var(--azul-medicina); border: 1px solid rgba(59,90,125,0.22); }
+    .secondary:hover { background: rgba(59,90,125,0.16); transform: translateY(-1px); }
+
+    .ghost { background: var(--beige-oscuro); color: var(--gris-medio); }
+    .ghost:hover { background: var(--beige-papel); transform: translateY(-1px); }
+
+    .danger { background: rgba(139,32,32,0.09); color: var(--rojo-bajo); border: 1px solid rgba(139,32,32,0.18); }
+    .danger:hover { background: rgba(139,32,32,0.14); }
+
+    .file-label { display: inline-block; }
+    #importFile, #importFile2 { display: none; }
+
+    /* Grid evaluación */
+    .grid {
+      display: grid; grid-template-columns: 1.15fr 0.85fr;
+      gap: var(--sp-md); align-items: start;
+    }
+
+    .questions { padding: var(--sp-md); }
+    .results { padding: var(--sp-md); position: sticky; top: 60px; }
+
+    .section-title {
+      font-family: var(--font-display); font-size: 1.35rem;
+      font-weight: 600; color: var(--verde-bosque); margin-bottom: 4px;
+    }
+    .section-note {
+      font-size: 0.86rem; color: var(--gris-medio);
+      font-style: italic; margin-bottom: var(--sp-md);
+    }
+
+    /* Card pregunta */
+    .question {
+      background: white; border: 1px solid var(--border-line);
+      border-radius: var(--radius-md); padding: var(--sp-md);
+      margin-bottom: var(--sp-sm); transition: all 0.22s ease;
+    }
+    .question:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--border-accent); }
+
+    .question-header { display: flex; justify-content: space-between; gap: var(--sp-sm); align-items: flex-start; margin-bottom: var(--sp-sm); }
+    .question h3 { font-family: var(--font-display); font-size: 1.02rem; font-weight: 600; color: var(--negro-carbon); margin-bottom: 4px; }
+    .question p { font-size: 0.85rem; color: var(--gris-medio); margin-bottom: 3px; line-height: 1.5; }
+
+    .pill {
+      font-family: var(--font-mono); font-size: 0.7rem;
+      padding: 4px 10px; border-radius: var(--radius-full);
+      background: rgba(45,80,22,0.09); color: var(--verde-bosque);
+      white-space: nowrap; letter-spacing: 0.04em;
+    }
+
+    .value-row { display: flex; align-items: center; gap: var(--sp-sm); margin-top: var(--sp-xs); }
+    input[type="range"] { width: 100%; height: 6px; accent-color: var(--verde-bosque); cursor: pointer; }
+
+    .score-box {
+      min-width: 44px; text-align: center;
+      font-family: var(--font-mono); font-size: 1rem; font-weight: 700;
+      padding: 7px 5px; border-radius: var(--radius-sm);
+      border: 1px solid var(--border-accent);
+      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+    .score-box.score-low  { background: rgba(139,32,32,0.08); color: var(--rojo-bajo); border-color: rgba(139,32,32,0.25); }
+    .score-box.score-mid  { background: rgba(198,127,62,0.1); color: #8c5820; border-color: rgba(198,127,62,0.3); }
+    .score-box.score-high { background: rgba(45,80,22,0.08); color: var(--verde-bosque); border-color: var(--border-accent); }
+
+    .legend { display: flex; justify-content: space-between; font-size: 0.76rem; color: var(--gris-suave); font-family: var(--font-mono); margin-top: 4px; letter-spacing: 0.02em; }
+
+    /* Resultado */
+    .result-top { display: grid; grid-template-columns: auto 1fr; gap: var(--sp-md); align-items: center; margin-bottom: var(--sp-md); }
+
+    .big-score {
+      width: 104px; height: 104px; border-radius: 50%;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      background: linear-gradient(145deg, rgba(45,80,22,0.1), rgba(45,80,22,0.03));
+      border: 2px solid rgba(45,80,22,0.2);
+      font-family: var(--font-display); font-weight: 700;
+      color: var(--verde-bosque); box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+    .big-score span:first-child { font-size: 2rem; line-height: 1; }
+    .big-score .denom { font-family: var(--font-mono); font-size: 0.7rem; color: var(--gris-medio); letter-spacing: 0.05em; }
+
+    .category { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--azul-medicina); margin-bottom: 6px; }
+    .summary-text { font-size: 0.86rem; color: var(--gris-medio); line-height: 1.55; font-style: italic; }
+
+    .bars { margin: var(--sp-sm) 0; }
+    .bar-row { margin-bottom: var(--sp-xs); }
+    .bar-label { display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 4px; }
+    .bar-label strong { font-family: var(--font-mono); font-size: 0.76rem; color: var(--gris-medio); }
+    .bar-track { width: 100%; height: 8px; background: var(--beige-oscuro); border-radius: var(--radius-full); overflow: hidden; }
+    .bar-fill { height: 100%; background: linear-gradient(90deg, var(--ocre-tierra), var(--verde-bosque)); border-radius: var(--radius-full); transition: width 0.4s ease; }
+
+    .divider { margin: var(--sp-md) 0; border: none; border-top: 1px solid var(--border-line); }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chip { background: var(--beige-claro); border: 1px solid var(--border-line); border-radius: var(--radius-full); padding: 5px 11px; font-size: 0.82rem; }
+    .chip-strength { background: rgba(45,80,22,0.07); border-color: rgba(45,80,22,0.18); color: var(--verde-bosque); }
+    .chip-low { background: rgba(198,127,62,0.08); border-color: rgba(198,127,62,0.25); color: #8c5820; }
+
+    .priority-card {
+      background: linear-gradient(135deg, rgba(45,80,22,0.04), var(--beige-claro));
+      border: 1px solid var(--border-accent); border-radius: var(--radius-md);
+      padding: var(--sp-md); margin-top: var(--sp-sm);
+    }
+    .priority-card h3 { font-family: var(--font-display); font-size: 0.93rem; font-weight: 600; color: var(--verde-bosque); margin-bottom: 4px; }
+    .priority-card p { font-size: 0.86rem; color: var(--gris-medio); margin-bottom: var(--sp-sm); line-height: 1.5; }
+    .priority-card label { font-family: var(--font-display); font-size: 0.93rem; font-weight: 600; color: var(--verde-bosque); display: block; margin-bottom: 6px; }
+
+    textarea {
+      width: 100%; min-height: 66px; padding: var(--sp-sm);
+      border-radius: var(--radius-sm); border: 1px solid var(--border-line);
+      font-family: var(--font-body); font-size: 0.88rem; color: var(--negro-carbon);
+      background: white; resize: vertical; transition: border-color 0.2s ease;
+    }
+    textarea:focus { outline: none; border-color: var(--verde-bosque); }
+
+    .footer-note { margin-top: var(--sp-md); font-size: 0.8rem; color: var(--gris-suave); font-style: italic; text-align: center; font-family: var(--font-display); }
+
+    /* Zona de acciones */
+    .action-zone {
+      padding: var(--sp-md) var(--sp-lg);
+      border-top: 1px solid var(--border-line);
+      margin-top: var(--sp-md);
+      display: flex; align-items: center;
+      gap: var(--sp-sm); flex-wrap: wrap;
+    }
+    .action-zone-label {
+      font-family: var(--font-mono); font-size: 0.72rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--gris-suave); margin-right: auto;
+    }
+
+    /* Historial */
+    .history-section { padding: var(--sp-md); }
+    .history-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--sp-sm); margin-bottom: var(--sp-sm); }
+
+    .history-card {
+      background: var(--beige-claro); border: 1px solid var(--border-line);
+      border-radius: var(--radius-md); padding: var(--sp-md);
+      display: flex; flex-direction: column; gap: 8px;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+    .history-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+
+    .hcard-top { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-sm); }
+    .hcard-date { font-family: var(--font-mono); font-size: 0.72rem; color: var(--gris-medio); letter-spacing: 0.06em; }
+    .hcard-cat { font-family: var(--font-mono); font-size: 0.68rem; padding: 3px 9px; border-radius: var(--radius-full); white-space: nowrap; }
+    .hcard-score-row { display: flex; align-items: baseline; gap: 6px; }
+    .hcard-score-num { font-family: var(--font-display); font-size: 2.4rem; font-weight: 700; line-height: 1; }
+    .hcard-score-den { font-family: var(--font-mono); font-size: 0.78rem; color: var(--gris-medio); }
+    .hcard-divider { border: none; border-top: 1px solid var(--border-line); }
+    .hcard-label { font-family: var(--font-mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--gris-suave); margin-bottom: 2px; }
+    .hcard-value { font-size: 0.85rem; color: var(--negro-carbon); line-height: 1.4; }
+    .hcard-signal { font-size: 0.83rem; color: var(--gris-medio); font-style: italic; }
+
+    .muted-note { font-size: 0.9rem; color: var(--gris-suave); background: var(--beige-claro); border: 1px dashed var(--border-line); border-radius: var(--radius-md); padding: var(--sp-md); text-align: center; font-style: italic; }
+    .history-actions { display: flex; gap: var(--sp-xs); flex-wrap: wrap; margin-top: var(--sp-sm); padding-top: var(--sp-sm); border-top: 1px solid var(--border-line); }
+
+    /* Toast */
+    #toast {
+      position: fixed; bottom: var(--sp-lg); left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: var(--negro-carbon); color: white;
+      font-family: var(--font-body); font-size: 0.9rem;
+      padding: 0.75rem 1.6rem; border-radius: var(--radius-full);
+      box-shadow: var(--shadow-lg); z-index: 200;
+      opacity: 0; transition: opacity 0.25s ease, transform 0.25s ease;
+      pointer-events: none; white-space: nowrap;
+    }
+    #toast.toast-show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    #toast.toast-success { background: var(--verde-bosque); }
+    #toast.toast-error { background: var(--rojo-bajo); }
+    #toast.toast-warn { background: #8c5820; }
+
+    /* Pie */
+    .eco-footer {
+      text-align: center; margin-top: var(--sp-xl);
+      padding-top: var(--sp-md); border-top: 1px solid var(--border-line);
+      font-family: var(--font-mono); font-size: 0.7rem;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--gris-suave);
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 980px) {
+      .hero, .grid { grid-template-columns: 1fr; }
+      .results { position: static; top: auto; }
+      .hero-side { border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
+      .hero-title, .hero-main { padding: var(--sp-md); }
+      .intro-ibp-box { grid-template-columns: 1fr; }
+      .ibp-score-demo { flex-direction: row; align-items: center; gap: var(--sp-md); }
+      .orquesta-body { grid-template-columns: 1fr; }
+      .ruta-steps { grid-template-columns: 1fr 1fr; }
+      .ruta-step { border-bottom: 1px solid var(--border-line); }
+    }
+
+    @media (max-width: 700px) {
+      .intro-wrap { padding: var(--sp-lg) var(--sp-sm); gap: var(--sp-lg); }
+      .wrap { padding: var(--sp-sm); }
+      .intro-title { font-size: 2.2rem; }
+      .pillars-grid { grid-template-columns: 1fr 1fr; }
+      .result-top { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+      .action-zone { padding: var(--sp-md); }
+      .nav-links { display: none; }
+      .ruta-steps { grid-template-columns: 1fr; }
+      #toast { white-space: normal; text-align: center; width: 80vw; }
+      .orquesta-header { grid-template-columns: 1fr; }
+      .orquesta-emoji { display: none; }
+    }
+
+    @media (max-width: 440px) {
+      .pillars-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       PANTALLA DE ENTRADA
+  ============================================================ -->
+  <div id="screen-intro">
+    <div class="intro-wrap">
+
+      <!-- Cabecera -->
+      <header class="intro-header">
+        <div class="intro-breadcrumb">Ecosistema Holístico &nbsp;·&nbsp; <span>Bienestar Personal</span></div>
+        <div class="intro-eyebrow">Instrumento de Observación Semanal</div>
+        <h1 class="intro-title">Índice de<br>Bienestar Personal</h1>
+        <p class="intro-lead">
+          Desde un enfoque transdisciplinario, el bienestar no es la ausencia de enfermedad
+          sino un equilibrio practicable entre dimensiones biológicas, psicológicas, sociales
+          y ambientales. El IBP te invita a asumir la autogestión de tu salud mediante
+          la observación constante y el ajuste de hábitos.
+        </p>
+        <div class="intro-filosophy">
+          La vida no se optimiza, se habita — con conciencia, con propósito y con pequeños ajustes sostenibles.
+        </div>
+      </header>
+
+      <div class="ornament">🌿</div>
+
+      <!-- Caja IBP -->
+      <div class="intro-ibp-box">
+        <div class="ibp-score-demo">
+          <div class="ibp-circle">
+            <span class="ibp-num">72</span>
+            <span class="ibp-den">/100</span>
+          </div>
+          <div class="ibp-ranges">
+            <div class="ibp-range-item" style="background:rgba(45,80,22,0.1);color:var(--verde-bosque);">85–100 · Equilibrio robusto</div>
+            <div class="ibp-range-item" style="background:rgba(59,90,125,0.08);color:var(--azul-medicina);">70–84 · Buen rumbo</div>
+            <div class="ibp-range-item" style="background:rgba(198,127,62,0.1);color:#8c5820;">50–69 · Señales de desgaste</div>
+            <div class="ibp-range-item" style="background:rgba(139,32,32,0.08);color:var(--rojo-bajo);">0–49 · Modo rescate</div>
+          </div>
+        </div>
+        <div class="ibp-box-text">
+          <h2>¿Qué es el IBP?</h2>
+          <p>
+            El <strong>Índice de Bienestar Personal</strong> es una puntuación de 0 a 100 que resulta de
+            sumar tu autoevaluación en 10 pilares, cada uno puntuado de 0 a 10 según
+            cómo viviste la semana. Este sistema propone que el individuo transforme la salud
+            de un concepto estático a una <strong>práctica científica personal y dinámica</strong>.
+          </p>
+          <p>
+            No hay respuestas correctas. El IBP es una fotografía honesta de tu semana:
+            útil para detectar patrones, nombrar fortalezas y elegir un microcambio
+            concreto y sostenible.
+          </p>
+          <p><em>Esta herramienta es orientativa y no sustituye apoyo profesional de salud.</em></p>
+        </div>
+      </div>
+
+      <div class="ornament">✦</div>
+
+      <!-- Pilares: flip cards -->
+      <div>
+        <div class="pillars-section-header">
+          <h2 class="pillars-section-title">Los 10 pilares del buen vivir</h2>
+          <p class="pillars-section-sub">Cada pilar es un componente esencial que aporta a la salud metabólica, mental y social.</p>
+          <div class="click-hint">↗ Haz clic en cada tarjeta para ver sus 5 hábitos clave</div>
+        </div>
+        <div style="height:var(--sp-md);"></div>
+        <div class="pillars-grid" id="pillarsIntroGrid"></div>
+      </div>
+
+      <div class="ornament">✦</div>
+
+      <!-- Efecto Orquesta -->
+      <div class="orquesta-section">
+        <div class="orquesta-header">
+          <div>
+            <div class="orquesta-eyebrow">Integración de pilares</div>
+            <div class="orquesta-title">El Efecto "Orquesta"</div>
+            <div class="orquesta-subtitle">
+              El bienestar funciona como una orquesta: si un instrumento se desafina,
+              la música continúa, pero pierde su brillo y armonía.
+            </div>
+          </div>
+          <div class="orquesta-emoji">🎶</div>
+        </div>
+
+        <div class="orquesta-body">
+          <div class="orquesta-text">
+            <p>
+              Existe una <strong>sinergia profunda</strong> entre los pilares. No son compartimentos
+              independientes — se sostienen y amplifican mutuamente. Una mala nutrición
+              o falta de sueño desafinan el bienestar emocional y la capacidad de concentración
+              intelectual. Por el contrario, fortalecer la relajación mejora la calidad del sueño
+              y la satisfacción ocupacional.
+            </p>
+            <p>
+              La meta no es la perfección en cada instrumento, sino un
+              <strong>equilibrio practicable</strong> donde los pilares se sostengan mutuamente.
+              Cuando uno mejora, arrastra consigo a sus vecinos. Cuando uno cae,
+              los pilares fuertes actúan como red de contención.
+            </p>
+            <p>
+              Por eso el IBP no recomienda trabajar todos los pilares a la vez:
+              identifica el <strong>pilar prioritario</strong> — el más bajo — e invierte
+              ahí tu energía semanal. Un cambio pequeño en el lugar correcto
+              resuena en toda la orquesta.
+            </p>
+          </div>
+
+          <div class="sinergy-diagram">
+            <div class="sinergy-title">Sinergias clave</div>
+
+            <div class="sinergy-item">
+              <div class="sinergy-row">
+                <span class="sinergy-pill">Sueño</span>
+                <span class="sinergy-arrow">→</span>
+                <span class="sinergy-pill">Emocional</span>
+                <span class="sinergy-arrow">+</span>
+                <span class="sinergy-pill">Intelectual</span>
+              </div>
+              <div class="sinergy-desc">Dormir bien mejora la regulación emocional y la capacidad de concentración y aprendizaje.</div>
+            </div>
+
+            <div class="sinergy-item">
+              <div class="sinergy-row">
+                <span class="sinergy-pill">Relajación</span>
+                <span class="sinergy-arrow">→</span>
+                <span class="sinergy-pill">Sueño</span>
+                <span class="sinergy-arrow">+</span>
+                <span class="sinergy-pill">Ocupacional</span>
+              </div>
+              <div class="sinergy-desc">Gestionar el estrés mejora la calidad del descanso y la satisfacción en el trabajo o estudio.</div>
+            </div>
+
+            <div class="sinergy-item">
+              <div class="sinergy-row">
+                <span class="sinergy-pill">Actividad física</span>
+                <span class="sinergy-arrow">→</span>
+                <span class="sinergy-pill">Estrés</span>
+                <span class="sinergy-arrow">+</span>
+                <span class="sinergy-pill">Emocional</span>
+              </div>
+              <div class="sinergy-desc">El movimiento regula el cortisol y mejora el estado de ánimo de forma directa y sostenida.</div>
+            </div>
+
+            <div class="sinergy-item">
+              <div class="sinergy-row">
+                <span class="sinergy-pill">Comunitario</span>
+                <span class="sinergy-arrow">→</span>
+                <span class="sinergy-pill">Emocional</span>
+                <span class="sinergy-arrow">+</span>
+                <span class="sinergy-pill">Ocio</span>
+              </div>
+              <div class="sinergy-desc">Los vínculos reales nutren el bienestar emocional y abren espacios naturales de juego y descanso.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="orquesta-meta">
+          "Un cambio pequeño en el pilar correcto resuena en toda la orquesta."
+        </div>
+      </div>
+
+      <div class="ornament">✦</div>
+
+      <!-- Ruta Semanal -->
+      <div class="ruta-section">
+        <div class="ruta-header">
+          <div>
+            <div class="ruta-eyebrow">Longevidad funcional</div>
+            <div class="ruta-title">La Ruta Semanal</div>
+            <div class="ruta-desc">
+              Un ciclo de aprendizaje de por vida: 15 minutos a la semana para transformar
+              la salud de un rompecabezas peleado en un sistema que aprende.
+            </div>
+          </div>
+          <div class="ruta-tiempo">⏱ 15 min / semana</div>
+        </div>
+
+        <div class="ruta-steps">
+          <div class="ruta-step">
+            <div class="ruta-step-num">01</div>
+            <div class="ruta-step-verb">Medir</div>
+            <div class="ruta-step-desc">Calcular el IBP puntuando cada pilar de 0 a 10 según la semana real vivida.</div>
+            <div class="ruta-step-ex">→ Esta herramienta</div>
+          </div>
+          <div class="ruta-step">
+            <div class="ruta-step-num">02</div>
+            <div class="ruta-step-verb">Reflexionar</div>
+            <div class="ruta-step-desc">Escribir qué funcionó, qué falló y qué se necesita esta semana.</div>
+            <div class="ruta-step-ex">→ Campo "Señal de éxito"</div>
+          </div>
+          <div class="ruta-step">
+            <div class="ruta-step-num">03</div>
+            <div class="ruta-step-verb">Priorizar</div>
+            <div class="ruta-step-desc">Elegir solo un pilar para enfocar los esfuerzos. Uno, no varios.</div>
+            <div class="ruta-step-ex">→ Prioridad sugerida</div>
+          </div>
+          <div class="ruta-step">
+            <div class="ruta-step-num">04</div>
+            <div class="ruta-step-verb">Diseñar</div>
+            <div class="ruta-step-desc">Implementar un microcambio mínimo viable, pequeño y concreto.</div>
+            <div class="ruta-step-ex">→ Microcambio sugerido</div>
+          </div>
+          <div class="ruta-step">
+            <div class="ruta-step-num">05</div>
+            <div class="ruta-step-verb">Revisar</div>
+            <div class="ruta-step-desc">Ejecutar por 7 días y regresar a medir. El ciclo se repite con lo aprendido.</div>
+            <div class="ruta-step-ex">→ Historial local</div>
+          </div>
+        </div>
+
+        <div class="ruta-eticas">
+          <span class="ruta-eticas-label">Tres reglas éticas</span>
+          <span class="etica-pill">Lo sostenible vence a lo perfecto</span>
+          <span class="etica-pill">Lo pequeño vence a lo épico</span>
+          <span class="etica-pill">Se mide para aprender, no para castigarse</span>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="intro-cta">
+        <button class="btn-cta" id="startBtn">Comenzar mi evaluación semanal</button>
+        <span class="intro-cta-note">Toma aproximadamente 5 minutos · Tus datos se guardan solo en este navegador</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MODAL POPUP DE PILARES
+  ============================================================ -->
+  <div id="pillar-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-name-text">
+    <div id="pillar-modal">
+      <div class="modal-header">
+        <div class="modal-icon" id="modal-icon">🌿</div>
+        <div class="modal-header-text">
+          <div class="modal-num" id="modal-num">Pilar 01</div>
+          <div class="modal-name" id="modal-name-text">Nutrición</div>
+          <div class="modal-intro" id="modal-intro"></div>
+        </div>
+        <button class="modal-close" id="modal-close-btn" aria-label="Cerrar">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-habits-title">5 hábitos clave</div>
+        <ul class="modal-habits-list" id="modal-habits-list"></ul>
+      </div>
+      <div class="modal-footer">
+        <button class="modal-nav-btn" id="modal-prev-btn">← Anterior</button>
+        <span class="modal-counter" id="modal-counter">1 / 10</span>
+        <button class="modal-nav-btn" id="modal-next-btn">Siguiente →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navegación sticky -->
+  <nav id="app-nav">
+    <div class="nav-inner">
+      <span class="nav-logo">IBP · Bienestar Personal</span>
+      <div class="nav-links">
+        <button class="nav-link active" onclick="navScrollTo('sec-evaluacion')">Evaluación</button>
+        <button class="nav-link" onclick="navScrollTo('sec-historial')">Historial</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       APP PRINCIPAL
+  ============================================================ -->
+  <div id="screen-app">
+    <div class="wrap">
+
+      <section class="hero" style="margin-bottom:var(--sp-md);">
+        <div class="panel hero-main">
+          <p class="hero-subtitle">Instrumento de Observación Semanal</p>
+          <h1 class="hero-title">Índice de Bienestar Personal</h1>
+          <p class="hero-desc">Evalúa tu semana en 10 pilares, calcula tu IBP, identifica fortalezas y elige un microcambio posible.</p>
+          <p class="hero-disclaimer">Herramienta orientativa. No mide tu valor personal ni sustituye apoyo profesional.</p>
+        </div>
+        <div class="panel hero-side">
+          <h2>La Ruta Semanal</h2>
+          <ul class="step-list">
+            <li><span class="step-num">1</span><span>Mide: puntúa cada pilar de 0 a 10.</span></li>
+            <li><span class="step-num">2</span><span>Reflexiona: anota qué funcionó y qué no.</span></li>
+            <li><span class="step-num">3</span><span>Prioriza: elige un solo pilar esta semana.</span></li>
+            <li><span class="step-num">4</span><span>Diseña y ejecuta un microcambio mínimo.</span></li>
+            <li><span class="step-num">5</span><span>Guarda y revisa en 7 días.</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="grid app-section" id="sec-evaluacion" style="margin-bottom:var(--sp-md);">
+        <div class="panel questions">
+          <h2 class="section-title">Evaluación semanal</h2>
+          <p class="section-note">Evalúa tu experiencia real de la última semana, no la versión ideal de ti.</p>
+          <div id="questionsContainer"></div>
+          <div class="action-zone">
+            <span class="action-zone-label">Acciones</span>
+            <button class="primary" id="saveBtn">Guardar evaluación</button>
+            <button class="secondary" id="exportBtn">Exportar historial</button>
+            <label class="file-label ghost" for="importFile">Importar historial</label>
+            <input type="file" id="importFile" accept="application/json" />
+            <button class="danger" id="clearBtn">Borrar historial</button>
+          </div>
+        </div>
+
+        <aside class="panel results">
+          <h2 class="section-title">Resultado</h2>
+          <div class="result-top">
+            <div class="big-score">
+              <span id="ibpValue">50</span>
+              <span class="denom">/100</span>
+            </div>
+            <div>
+              <div class="category" id="categoryText">—</div>
+              <p class="summary-text" id="summaryText">Mueve los controles para ver tu resultado.</p>
+            </div>
+          </div>
+          <div class="bars" id="barsContainer"></div>
+          <hr class="divider">
+          <div>
+            <h3 style="font-family:var(--font-display);font-size:0.92rem;font-weight:600;color:var(--verde-bosque);margin-bottom:8px;">Fortalezas</h3>
+            <div class="chips" id="strengths"></div>
+          </div>
+          <hr class="divider">
+          <div>
+            <h3 style="font-family:var(--font-display);font-size:0.92rem;font-weight:600;color:var(--ocre-tierra);margin-bottom:8px;">Áreas de cuidado</h3>
+            <div class="chips" id="lows"></div>
+          </div>
+          <div class="priority-card">
+            <h3>Prioridad sugerida</h3>
+            <p id="priorityText"></p>
+            <h3>Microcambio sugerido</h3>
+            <p id="microText"></p>
+            <label for="signalInput">Señal de éxito</label>
+            <textarea id="signalInput" placeholder="Ejemplo: despertar con más energía, hacer 4 pausas reales, caminar 3 veces..."></textarea>
+          </div>
+          <p class="footer-note">Mide para aprender, no para castigarte.</p>
+        </aside>
+      </section>
+
+      <section class="panel history-section app-section" id="sec-historial">
+        <h2 class="section-title">Historial local</h2>
+        <p class="section-note">Se guarda en este navegador. Exporta a JSON para respaldarlo o moverlo a otro equipo.</p>
+        <div class="history-grid" id="historyContainer"></div>
+        <div class="muted-note" id="historyEmpty">Todavía no hay evaluaciones guardadas. Completa tu primera evaluación y haz clic en "Guardar evaluación".</div>
+        <div class="history-actions">
+          <button class="secondary" id="exportBtn2">Exportar historial</button>
+          <label class="file-label ghost" for="importFile2">Importar historial</label>
+          <input type="file" id="importFile2" accept="application/json" />
+          <button class="danger" id="clearBtn2">Borrar historial</button>
+        </div>
+      </section>
+
+      <footer class="eco-footer">
+        Ecosistema de Medicina Holística &nbsp;·&nbsp; IBP v5 &nbsp;·&nbsp; Puerto Rico
+      </footer>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+
+  <script>
+    /* ============================================================
+       DATOS — pilares con hábitos completos
+    ============================================================ */
+    const pillarOrder = [
+      'nutricion','sueno','actividad_fisica','emocional','estres',
+      'ocio','aprendizaje','artistico','ocupacional','comunitario'
+    ];
+
+    const basePriorityOrder = ['sueno','estres','nutricion','actividad_fisica','emocional','comunitario','ocupacional','ocio','aprendizaje','artistico'];
+
+    const pillars = {
+      nutricion: {
+        name: 'Nutrición', icon: '🥗',
+        intro: 'Uso de alimentos como combustible y material de construcción del cuerpo.',
+        habits: [
+          'Consumir mayormente alimentos reales — más ingredientes, menos productos procesados.',
+          'Seguir la regla de MiPlato: ½ vegetales/frutas, ¼ proteína, ¼ carbohidratos.',
+          'Mantener horarios regulares de comida para estabilizar la energía.',
+          'Asegurar una hidratación adecuada con agua durante el día.',
+          'Escuchar las señales de hambre y saciedad del propio cuerpo.'
+        ],
+        question: '¿Qué tan equilibrada, suficiente y saludable sentiste tu alimentación e hidratación esta semana?',
+        hint: 'Piensa en calidad general, regularidad y alimentos mayormente reales.',
+        micro: ['Agregar 1 fruta o 1 vegetal al día', 'Tener agua visible durante el día']
+      },
+      sueno: {
+        name: 'Sueño y descanso', icon: '🌙',
+        intro: 'Proceso de reparación física y mental que sostiene todo lo demás.',
+        habits: [
+          'Mantener un horario constante para dormir y despertar, incluso en fines de semana.',
+          'Realizar una rutina de bajada: luz tenue y lectura los últimos 30 minutos.',
+          'Eliminar pantallas al menos 20 minutos antes de acostarse.',
+          'Priorizar el ritual de sueño sobre la fuerza de voluntad.',
+          'Asegurar un ambiente de descanso de calidad: oscuridad, silencio y temperatura fresca.'
+        ],
+        question: '¿Qué tan reparador y regular fue tu descanso esta semana?',
+        hint: 'Piensa en calidad del sueño, regularidad y sensación de descanso.',
+        micro: ['Pantalla fuera 20 minutos antes de dormir', 'Bajar la luz 15 minutos antes de acostarte']
+      },
+      actividad_fisica: {
+        name: 'Actividad física', icon: '🚶',
+        intro: 'Combinación de movimiento diario, fuerza y movilidad para una energía sostenida.',
+        habits: [
+          'Realizar movimiento diario: caminar, subir escaleras, moverse entre tareas.',
+          'Entrenar fuerza 2 a 3 veces por semana con pesas, bandas o peso corporal.',
+          'Dedicar 5–10 minutos a movilidad suave para mantener el cuerpo ágil.',
+          'Practicar una caminata de 10 minutos después de comer.',
+          'Evitar el sedentarismo prolongado con pausas de postura y estiramiento.'
+        ],
+        question: '¿Qué tanto te moviste de forma que favoreciera tu energía, fuerza o movilidad esta semana?',
+        hint: 'Incluye caminatas, estiramiento, baile, escaleras o ejercicio.',
+        micro: ['Caminata de 10 minutos después de comer', 'Hacer 5 minutos de movilidad suave']
+      },
+      emocional: {
+        name: 'Bienestar emocional', icon: '💛',
+        intro: 'Capacidad de reconocer y responder a las emociones con habilidad y conciencia.',
+        habits: [
+          'Practicar el "nombro para domar": identificar la emoción presente en el momento.',
+          'Escribir un diario breve de tres líneas sobre lo sentido y lo necesitado.',
+          'Mantener al menos una conversación segura con alguien de confianza.',
+          'Desarrollar la resiliencia ante los desafíos cotidianos sin autoexigencia excesiva.',
+          'Ejercer la pausa consciente antes de una reacción automática.'
+        ],
+        question: '¿Qué tan capaz fuiste de reconocer y manejar tus emociones con conciencia esta semana?',
+        hint: 'No se trata de sentirte siempre bien, sino de notar y responder mejor.',
+        micro: ['Nombrar la emoción 1 vez al día', 'Escribir 3 líneas sobre cómo te sentiste']
+      },
+      estres: {
+        name: 'Relajación y estrés', icon: '🌬️',
+        intro: 'Acción intencional de bajar el "volumen interno" y recuperar calma.',
+        habits: [
+          'Realizar micro-relajaciones diarias de 3 a 10 minutos: respiración o meditación.',
+          'Aplicar higiene de pausas entre tareas largas para evitar la acumulación.',
+          'Identificar y limitar los drenajes de energía: multitarea y exceso de pantallas.',
+          'Practicar respiración lenta al mediodía como ancla de calma.',
+          'Establecer límites claros en trabajo y relaciones para proteger la paz mental.'
+        ],
+        question: '¿Qué tan bien lograste reducir tensiones y hacer pausas reales esta semana?',
+        hint: 'Respiración, pausas, oración, caminatas cortas o microdescanso cuentan.',
+        micro: ['Respirar 3 minutos al mediodía', 'Hacer una pausa breve entre tareas largas']
+      },
+      ocio: {
+        name: 'Ocio y juego', icon: '🎨',
+        intro: 'Recreación que repara la motivación, la creatividad y el sentido de disfrute.',
+        habits: [
+          'Priorizar el ocio nutritivo — hobbies, naturaleza — sobre el ocio drenante.',
+          'Planificar un bloque semanal no negociable de disfrute sano.',
+          'Participar en actividades sociales y juegos grupales.',
+          'Buscar encuentros con la naturaleza para recargar energía de forma profunda.',
+          'Permitirse el juego sin juicio de resultados ni productividad.'
+        ],
+        question: '¿Qué tanto tuviste espacios de disfrute o recreación que realmente te recargaran esta semana?',
+        hint: 'Piensa en hobbies, paseos, naturaleza o actividades que te dejaron mejor.',
+        micro: ['Reservar 1 hora semanal de hobby sin culpa', 'Hacer un paseo corto sin pantalla']
+      },
+      aprendizaje: {
+        name: 'Aprendizaje', icon: '📚',
+        intro: 'Curiosidad activa y crecimiento mental continuo como práctica de vida.',
+        habits: [
+          'Aprender una cosa nueva por semana, sin importar el tema.',
+          'Integrar conocimientos en modo explicable: resumirlo en 60 segundos.',
+          'Consumir material educativo y cultural regularmente.',
+          'Desafiar la mente con juegos mentales, acertijos o nuevas perspectivas.',
+          'Practicar el pensamiento crítico al evaluar información y fuentes.'
+        ],
+        question: '¿Qué tanto aprendiste o integraste algo nuevo y útil esta semana?',
+        hint: 'Puede ser una idea, habilidad, lectura o conversación que te expandió.',
+        micro: ['Aprender 1 concepto y explicarlo', 'Leer 10 minutos sobre algo que te interese']
+      },
+      artistico: {
+        name: 'Expresión artística', icon: '✍️',
+        intro: 'Creación y expresión personal sin presión evaluativa ni resultado esperado.',
+        habits: [
+          'Dedicar 20 minutos creativos a la semana: dibujo, música, escritura o diseño.',
+          'Enfocarse en el proceso creativo, no en el resultado estético.',
+          'Practicar la creación libre y la improvisación sin censura.',
+          'Explorar nuevas formas de expresión artística cada cierto tiempo.',
+          'Usar el arte como herramienta de regulación emocional.'
+        ],
+        question: '¿Qué tanto encontraste espacio para crear o expresarte esta semana?',
+        hint: 'Dibujo, música, escritura, fotografía, diseño o cualquier forma creativa.',
+        micro: ['15 minutos de creación libre', 'Tomar una foto consciente de algo bello']
+      },
+      ocupacional: {
+        name: 'Bienestar ocupacional', icon: '⚖️',
+        intro: 'Calidad de la relación con el trabajo, estudio o vocación principal.',
+        habits: [
+          'Definir objetivos pequeños y semanales para visibilizar el progreso.',
+          'Mantener un ritmo sostenible con pausas programadas y respetadas.',
+          'Organizar el entorno físico para reducir la fricción al comenzar tareas.',
+          'Buscar el sentido de propósito en las tareas diarias, incluso las rutinarias.',
+          'Establecer un equilibrio saludable entre el trabajo y la vida personal.'
+        ],
+        question: '¿Qué tan sostenible, organizada y significativa sentiste tu ocupación principal esta semana?',
+        hint: 'Piensa en trabajo, estudio u oficio: carga, sentido y sensación de avance.',
+        micro: ['Lista de 3 tareas, no de 30', 'Preparar el entorno de trabajo la noche anterior']
+      },
+      comunitario: {
+        name: 'Bienestar comunitario', icon: '🤝',
+        intro: 'Conexión, pertenencia y contribución social como base de la salud integral.',
+        habits: [
+          'Tener al menos un contacto intencional semanal: llamada, visita o mensaje.',
+          'Realizar actos de contribución o ayuda a otras personas.',
+          'Participar en grupos o comunidades de interés compartido.',
+          'Cuidar los espacios comunes y el entorno social inmediato.',
+          'Practicar la empatía y la escucha activa en las relaciones cotidianas.'
+        ],
+        question: '¿Qué tan conectado, acompañado o útil te sentiste en relación con otras personas esta semana?',
+        hint: 'Vínculos, apoyo, pertenencia y oportunidades de contribuir.',
+        micro: ['Tener 1 conversación significativa a la semana', 'Escribir o llamar a alguien importante']
+      }
+    };
+
+    const state = {
+      responses: Object.fromEntries(pillarOrder.map(k => [k, 5]))
+    };
+
+    /* ============================================================
+       TOAST
+    ============================================================ */
+    let toastTimer = null;
+    function showToast(msg, type = 'success', duration = 2800) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.className = `toast-show toast-${type}`;
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => { t.className = ''; }, duration);
+    }
+
+    /* ============================================================
+       LÓGICA ORIGINAL
+    ============================================================ */
+    function getHistory() {
+      try { return JSON.parse(localStorage.getItem('ibp_historial_v2') || '[]'); }
+      catch { return []; }
+    }
+    function setHistory(h) { localStorage.setItem('ibp_historial_v2', JSON.stringify(h)); }
+
+    function classifyIBP(v) {
+      if (v >= 85) return 'Equilibrio robusto';
+      if (v >= 70) return 'Buen rumbo';
+      if (v >= 50) return 'Señales de desgaste';
+      return 'Modo rescate';
+    }
+
+    function makeSummary(cat, name) {
+      const n = name.toLowerCase();
+      if (cat === 'Equilibrio robusto') return `Tu bienestar semanal muestra buenas bases. Mantén lo que funciona y afina con suavidad ${n}.`;
+      if (cat === 'Buen rumbo') return `Vas por buen rumbo. Una mejora focalizada en ${n} puede darte más estabilidad.`;
+      if (cat === 'Señales de desgaste') return `Tu semana muestra cierta carga acumulada. Conviene priorizar ${n} con un cambio pequeño y sostenible.`;
+      return `Tu sistema parece pedir alivio. Empieza por ${n} y elige una meta mínima y realista.`;
+    }
+
+    function computeResult() {
+      const entries = pillarOrder.map(id => ({ id, name: pillars[id].name, value: Number(state.responses[id] || 0) }));
+      const ibp = entries.reduce((s, e) => s + e.value, 0);
+      const category = classifyIBP(ibp);
+      const sorted = [...entries].sort((a,b) => b.value - a.value || a.name.localeCompare(b.name));
+      const strengths = sorted.slice(0, 3);
+      const lows = [...entries].sort((a,b) => a.value - b.value || a.name.localeCompare(b.name)).slice(0, 3);
+      const minVal = Math.min(...entries.map(e => e.value));
+      const lowestIds = entries.filter(e => e.value === minVal).map(e => e.id);
+      const priorityId = [...basePriorityOrder, ...pillarOrder].find(id => lowestIds.includes(id)) || lows[0].id;
+      const priority = pillars[priorityId].name;
+      const micro = pillars[priorityId].micro[0];
+      const summary = makeSummary(category, priority);
+      return { ibp, category, strengths, lows, priorityId, priority, micro, summary, entries };
+    }
+
+    function scoreClass(v) {
+      if (v <= 3) return 'score-low';
+      if (v <= 6) return 'score-mid';
+      return 'score-high';
+    }
+
+    /* ============================================================
+       TARJETAS DE PILARES — abren modal popup
+    ============================================================ */
+    let currentModalIndex = 0;
+
+    function openModal(index) {
+      currentModalIndex = index;
+      const id = pillarOrder[index];
+      const p = pillars[id];
+
+      document.getElementById('modal-icon').textContent = p.icon;
+      document.getElementById('modal-num').textContent = `Pilar ${String(index + 1).padStart(2, '0')}`;
+      document.getElementById('modal-name-text').textContent = p.name;
+      document.getElementById('modal-intro').textContent = p.intro;
+      document.getElementById('modal-counter').textContent = `${index + 1} / ${pillarOrder.length}`;
+
+      document.getElementById('modal-prev-btn').disabled = index === 0;
+      document.getElementById('modal-next-btn').disabled = index === pillarOrder.length - 1;
+
+      const list = document.getElementById('modal-habits-list');
+      list.innerHTML = p.habits.map((h, i) => `
+        <li class="modal-habit-item">
+          <span class="modal-habit-num">${i + 1}</span>
+          <span class="modal-habit-text">${h}</span>
+        </li>
+      `).join('');
+
+      // Scroll al tope del modal body
+      document.querySelector('.modal-body').scrollTop = 0;
+
+      const overlay = document.getElementById('pillar-modal-overlay');
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('pillar-modal-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function renderPillarsIntro() {
+      const grid = document.getElementById('pillarsIntroGrid');
+      pillarOrder.forEach((id, i) => {
+        const p = pillars[id];
+        const card = document.createElement('div');
+        card.className = 'pillar-card';
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('aria-label', `${p.name} — abrir detalles`);
+
+        card.innerHTML = `
+          <div class="pcard-top">
+            <span class="pcard-icon">${p.icon}</span>
+            <span class="pcard-num">Pilar ${String(i + 1).padStart(2, '0')}</span>
+          </div>
+          <div class="pcard-name">${p.name}</div>
+          <div class="pcard-desc">${p.intro}</div>
+          <div class="pcard-cue">
+            <span class="pcard-cue-dot"></span>
+            Ver 5 hábitos clave
+          </div>
+        `;
+
+        card.addEventListener('click', () => openModal(i));
+        card.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(i); }
+        });
+
+        grid.appendChild(card);
+      });
+
+      // Modal: cerrar
+      document.getElementById('modal-close-btn').addEventListener('click', closeModal);
+      document.getElementById('pillar-modal-overlay').addEventListener('click', e => {
+        if (e.target === document.getElementById('pillar-modal-overlay')) closeModal();
+      });
+      document.addEventListener('keydown', e => {
+        const overlay = document.getElementById('pillar-modal-overlay');
+        if (!overlay.classList.contains('open')) return;
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'ArrowRight' && currentModalIndex < pillarOrder.length - 1) openModal(currentModalIndex + 1);
+        if (e.key === 'ArrowLeft' && currentModalIndex > 0) openModal(currentModalIndex - 1);
+      });
+
+      // Modal: navegación
+      document.getElementById('modal-prev-btn').addEventListener('click', () => {
+        if (currentModalIndex > 0) openModal(currentModalIndex - 1);
+      });
+      document.getElementById('modal-next-btn').addEventListener('click', () => {
+        if (currentModalIndex < pillarOrder.length - 1) openModal(currentModalIndex + 1);
+      });
+    }
+
+    /* ============================================================
+       RENDER PREGUNTAS
+    ============================================================ */
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      container.innerHTML = '';
+      pillarOrder.forEach((id, index) => {
+        const p = pillars[id];
+        const value = state.responses[id];
+        const div = document.createElement('div');
+        div.className = 'question';
+        div.innerHTML = `
+          <div class="question-header">
+            <div style="flex:1;">
+              <h3>${p.icon} ${index + 1}. ${p.name}</h3>
+              <p>${p.question}</p>
+              <p>${p.hint}</p>
+            </div>
+            <span class="pill">0 – 10</span>
+          </div>
+          <div class="value-row">
+            <input type="range" min="0" max="10" step="1" value="${value}" data-id="${id}" />
+            <div class="score-box ${scoreClass(value)}" id="score-${id}">${value}</div>
+          </div>
+          <div class="legend"><span>Muy bajo</span><span>Regular</span><span>Muy bueno</span></div>
+        `;
+        container.appendChild(div);
+      });
+      container.querySelectorAll('input[type="range"]').forEach(input => {
+        input.addEventListener('input', e => {
+          const id = e.target.dataset.id;
+          const val = Number(e.target.value);
+          state.responses[id] = val;
+          const box = document.getElementById(`score-${id}`);
+          box.textContent = val;
+          box.className = `score-box ${scoreClass(val)}`;
+          renderResults();
+        });
+      });
+    }
+
+    /* ============================================================
+       RENDER RESULTADO
+    ============================================================ */
+    function renderResults() {
+      const r = computeResult();
+      document.getElementById('ibpValue').textContent = r.ibp;
+      document.getElementById('categoryText').textContent = r.category;
+      document.getElementById('summaryText').textContent = r.summary;
+      document.getElementById('priorityText').textContent = r.priority;
+      document.getElementById('microText').textContent = r.micro;
+
+      const bars = document.getElementById('barsContainer');
+      bars.innerHTML = '';
+      r.entries.forEach(e => {
+        const row = document.createElement('div');
+        row.className = 'bar-row';
+        row.innerHTML = `
+          <div class="bar-label"><span>${e.name}</span><strong>${e.value}/10</strong></div>
+          <div class="bar-track"><div class="bar-fill" style="width:${e.value*10}%"></div></div>
+        `;
+        bars.appendChild(row);
+      });
+
+      document.getElementById('strengths').innerHTML = '';
+      r.strengths.forEach(s => {
+        const c = document.createElement('div');
+        c.className = 'chip chip-strength';
+        c.textContent = `${s.name} (${s.value})`;
+        document.getElementById('strengths').appendChild(c);
+      });
+
+      document.getElementById('lows').innerHTML = '';
+      r.lows.forEach(s => {
+        const c = document.createElement('div');
+        c.className = 'chip chip-low';
+        c.textContent = `${s.name} (${s.value})`;
+        document.getElementById('lows').appendChild(c);
+      });
+    }
+
+    /* ============================================================
+       RENDER HISTORIAL
+    ============================================================ */
+    function catStyle(cat) {
+      if (cat === 'Equilibrio robusto') return 'background:rgba(45,80,22,0.1);color:var(--verde-bosque);';
+      if (cat === 'Buen rumbo') return 'background:rgba(59,90,125,0.09);color:var(--azul-medicina);';
+      if (cat === 'Señales de desgaste') return 'background:rgba(198,127,62,0.1);color:#8c5820;';
+      return 'background:rgba(139,32,32,0.08);color:var(--rojo-bajo);';
+    }
+    function scoreColor(ibp) {
+      if (ibp >= 85) return 'var(--verde-bosque)';
+      if (ibp >= 70) return 'var(--azul-medicina)';
+      if (ibp >= 50) return '#8c5820';
+      return 'var(--rojo-bajo)';
+    }
+    function formatDate(iso) {
+      const [y,m,d] = iso.split('-');
+      const months = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+      return `${d} ${months[parseInt(m,10)-1]} ${y}`;
+    }
+
+    function renderHistory() {
+      const history = getHistory().sort((a,b) => b.fecha.localeCompare(a.fecha));
+      const container = document.getElementById('historyContainer');
+      const empty = document.getElementById('historyEmpty');
+      container.innerHTML = '';
+      empty.style.display = history.length ? 'none' : 'block';
+      history.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'history-card';
+        card.innerHTML = `
+          <div class="hcard-top">
+            <span class="hcard-date">${formatDate(item.fecha)}</span>
+            <span class="hcard-cat" style="${catStyle(item.categoria)}">${item.categoria}</span>
+          </div>
+          <div class="hcard-score-row">
+            <span class="hcard-score-num" style="color:${scoreColor(item.ibp)}">${item.ibp}</span>
+            <span class="hcard-score-den">/100 · IBP</span>
+          </div>
+          <hr class="hcard-divider">
+          <div><div class="hcard-label">Prioridad</div><div class="hcard-value">${item.prioridad}</div></div>
+          <div><div class="hcard-label">Microcambio</div><div class="hcard-value">${item.microcambio}</div></div>
+          ${item.senalExito ? `<div><div class="hcard-label">Señal de éxito</div><div class="hcard-signal">${item.senalExito}</div></div>` : ''}
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    /* ============================================================
+       ACCIONES
+    ============================================================ */
+    function saveEvaluation() {
+      const r = computeResult();
+      const history = getHistory();
+      const fecha = new Date().toISOString().slice(0,10);
+      const senalExito = document.getElementById('signalInput').value.trim();
+      history.push({ fecha, respuestas: { ...state.responses }, ibp: r.ibp, categoria: r.category, prioridad: r.priority, microcambio: r.micro, senalExito });
+      setHistory(history);
+      renderHistory();
+      showToast('✓ Evaluación guardada correctamente', 'success');
+    }
+
+    function exportHistory() {
+      const data = JSON.stringify(getHistory(), null, 2);
+      const blob = new Blob([data], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'historial_ibp.json'; a.click();
+      URL.revokeObjectURL(url);
+      showToast('Historial exportado', 'success', 2000);
+    }
+
+    function importHistory(file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const imported = JSON.parse(reader.result);
+          if (!Array.isArray(imported)) throw new Error();
+          setHistory(imported);
+          renderHistory();
+          showToast(`✓ ${imported.length} evaluaciones importadas`, 'success');
+        } catch {
+          showToast('No pude importar ese archivo JSON', 'error');
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function clearHistory() {
+      if (!confirm('¿Seguro que deseas borrar el historial guardado en este navegador?')) return;
+      localStorage.removeItem('ibp_historial_v2');
+      renderHistory();
+      showToast('Historial borrado', 'warn');
+    }
+
+    /* ============================================================
+       NAVEGACIÓN
+    ============================================================ */
+    function navScrollTo(id) {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      const map = { 'sec-evaluacion': 0, 'sec-historial': 1 };
+      const links = document.querySelectorAll('.nav-link');
+      if (links[map[id]]) links[map[id]].classList.add('active');
+    }
+
+    function updateNavOnScroll() {
+      const sections = ['sec-evaluacion','sec-historial'];
+      const links = document.querySelectorAll('.nav-link');
+      let current = 0;
+      sections.forEach((id, i) => {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= 90) current = i;
+      });
+      links.forEach((l, i) => l.classList.toggle('active', i === current));
+    }
+    window.addEventListener('scroll', updateNavOnScroll, { passive: true });
+
+    /* ============================================================
+       ARRANQUE
+    ============================================================ */
+    function launchApp() {
+      document.getElementById('screen-intro').style.display = 'none';
+      document.getElementById('screen-app').style.display = 'block';
+      document.getElementById('app-nav').style.display = 'block';
+      renderQuestions();
+      renderResults();
+      renderHistory();
+    }
+
+    document.getElementById('saveBtn').addEventListener('click', saveEvaluation);
+    document.getElementById('exportBtn').addEventListener('click', exportHistory);
+    document.getElementById('clearBtn').addEventListener('click', clearHistory);
+    document.getElementById('importFile').addEventListener('change', e => {
+      const f = e.target.files?.[0]; if (f) importHistory(f); e.target.value = '';
+    });
+    document.getElementById('exportBtn2').addEventListener('click', exportHistory);
+    document.getElementById('clearBtn2').addEventListener('click', clearHistory);
+    document.getElementById('importFile2').addEventListener('change', e => {
+      const f = e.target.files?.[0]; if (f) importHistory(f); e.target.value = '';
+    });
+    document.getElementById('startBtn').addEventListener('click', launchApp);
+
+    renderPillarsIntro();
+  </script>
+</body>
+</html>
